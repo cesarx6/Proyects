@@ -1,0 +1,143 @@
+# 📱 Análisis de uso de servicios móviles
+
+## 📌 Objetivo del proyecto
+
+Analizar el comportamiento de los usuarios de servicios móviles mediante el estudio de llamadas y mensajes de texto. 
+El objetivo es identificar patrones de uso, 
+detectar posibles comportamientos atípicos y segmentar a los clientes según sus niveles de consumo,
+para generar recomendaciones que permitan optimizar la oferta comercial y mejorar la experiencia del usuario.
+
+---
+## 📈 Principales hallazgos
+
+- La mayoría de los usuarios presenta un nivel de uso medio.
+- Los clientes se concentran principalmente entre los 40 y 60 años.
+- Se identificaron valores atípicos en mensajes, llamadas y minutos consumidos.
+- Los outliers corresponden a comportamientos reales de usuarios de alto consumo y fueron conservados para evitar sesgos.
+- Los patrones de uso entre los planes Básico y Premium son similares en términos generales.
+
+---
+
+## 📂 Datasets utilizados
+
+El proyecto utiliza dos conjuntos de datos principales:
+
+### users
+Contiene información demográfica y de suscripción de los clientes:
+
+- user_id
+- first_name
+- last_name
+- age
+- city
+- reg_date
+- plan
+- churn_date
+
+### usage
+Contiene información sobre la actividad de los usuarios:
+
+- user_id
+- type (call o text)
+- duration
+- length
+
+---
+
+## 🔎 Etapas del análisis
+
+### 1. Exploración inicial de datos
+- Revisión de tipos de datos.
+- Identificación de valores faltantes.
+- Detección de valores inconsistentes.
+- Validación de duplicados.
+
+### 2. Limpieza y preparación
+- Conversión de tipos de datos.
+- Tratamiento de valores nulos.
+- Verificación del mecanismo de ausencia de datos (MAR).
+- Creación de variables auxiliares.
+
+### 3. Agregación de información
+- Cálculo del total de mensajes por usuario.
+- Cálculo del total de llamadas por usuario.
+- Cálculo del total de minutos consumidos.
+- Integración de información mediante `merge()`.
+
+### 4. Análisis exploratorio de datos (EDA)
+- Histogramas por plan.
+- Análisis de distribución de edad.
+- Análisis de llamadas y mensajes.
+- Evaluación de minutos consumidos.
+
+### 5. Detección de valores atípicos
+- Visualización mediante boxplots.
+- Aplicación del método IQR.
+- Evaluación del impacto de los outliers en el análisis.
+
+### 6. Segmentación de usuarios
+- Creación de grupos por nivel de uso:
+  - Bajo uso
+  - Uso medio
+  - Alto uso
+
+- Creación de segmentos por edad.
+
+### 7. Generación de insights y recomendaciones
+- Identificación de patrones de comportamiento.
+- Elaboración de conclusiones ejecutivas.
+- Recomendaciones orientadas al negocio.
+
+---
+
+## ▶️ Cómo ejecutar el proyecto
+
+### Opción 1: Google Colab
+
+1. Descarga el archivo `.ipynb`.
+2. Abre Google Colab.
+3. Selecciona **Archivo → Subir notebook**.
+4. Carga el archivo del proyecto.
+5. Sube los datasets necesarios.
+6. Ejecuta las celdas en orden.
+
+### Opción 2: Jupyter Notebook
+
+Instalar dependencias:
+
+```bash
+pip install pandas numpy matplotlib seaborn
+```
+
+Abrir Jupyter:
+
+```bash
+jupyter notebook
+```
+
+Abrir el archivo `.ipynb` y ejecutar todas las celdas.
+
+---
+
+## 🔄 Guía de reproducción
+
+Para reproducir el análisis:
+
+1. Cargar los datasets originales.
+2. Ejecutar la sección de limpieza y preparación.
+3. Generar las tablas agregadas por usuario.
+4. Realizar el análisis exploratorio (EDA).
+5. Revisar histogramas y boxplots.
+6. Ejecutar la segmentación de usuarios.
+7. Consultar las conclusiones e insights finales.
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Jupyter Notebook
